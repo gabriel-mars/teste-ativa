@@ -6,10 +6,12 @@ import javax.persistence.TypedQuery;
 
 import com.gabriel.teste.model.base.BaseDAO;
 import com.gabriel.teste.model.entity.UsuarioEntity;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class UsuarioRepository extends BaseDAO<UsuarioEntity, Long>{
 	
-	@PersistenceContext
+    @PersistenceContext
     private EntityManager manager;
     
     @SuppressWarnings("unchecked")
@@ -18,6 +20,15 @@ public class UsuarioRepository extends BaseDAO<UsuarioEntity, Long>{
                 + "WHERE u.email = :email AND u.senha = :senha", UsuarioEntity.class);
         query.setParameter("email", email);
         query.setParameter("senha", senha);
+
+        return query.getSingleResult();
+    }
+    
+    @SuppressWarnings("unchecked")
+    public UsuarioEntity findByToken(String token) {       
+        TypedQuery<UsuarioEntity> query = manager.createQuery("SELECT u FROM UsuarioEntity u "
+                + "WHERE u.token = :token", UsuarioEntity.class);
+        query.setParameter("token", token);
 
         return query.getSingleResult();
     }

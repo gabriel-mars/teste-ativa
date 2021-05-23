@@ -12,11 +12,13 @@ import com.gabriel.teste.model.utils.SecurityGeneric;
 @Transactional(readOnly = true)
 public class UsuarioService {
 	
-	@Autowired
-	protected UsuarioRepository repository;
+    @Autowired
+    protected UsuarioRepository repository;
 
-	public UsuarioEntity findByLogin(String email, String senha) {
+    public UsuarioEntity findByLogin(String email, String senha) {
         senha = SecurityGeneric.getSecurePassword(senha);
         return repository.findByLogin(email, senha);
     }
+    
+    public UsuarioEntity findByToken(String token) { return repository.findByToken(token); }
 }
