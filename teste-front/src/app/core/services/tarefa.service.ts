@@ -20,6 +20,15 @@ export class TarefaService {
     private toastService: ToastService
   ) { }
 
+  create(tarefa: Tarefa, token: string): Observable<Tarefa> {
+    this.params = new HttpParams();
+    this.params = this.params.set('token', token);
+    return this.http.post<Tarefa>(this.baseUrl, tarefa, {headers: this.headers, params: this.params}).pipe(
+      map((obj) => obj),
+      catchError(e => this.errorHandler(e))
+    );
+  }
+
   read(token: string): Observable<Tarefa[]> {
     this.params = new HttpParams();
     this.params = this.params.set('token', token);

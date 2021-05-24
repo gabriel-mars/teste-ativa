@@ -24,6 +24,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatSelectModule } from '@angular/material/select';
 
 import { ConvidadoComponent } from './core/components/convidado/convidado.component';
 import { CreateConvidadoComponent } from './core/components/convidado/create-convidado/create-convidado.component';
@@ -57,7 +58,7 @@ import { HomeComponent } from './core/components/home/home.component';
     CreateTarefaComponent,
     UpdateTarefaComponent,
     DeleteTarefaComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -77,9 +78,10 @@ import { HomeComponent } from './core/components/home/home.component';
     MatInputModule,
     MatTableModule,
     MatPaginatorModule,
-    MatMenuModule
+    MatMenuModule,
+    MatSelectModule
   ],
   providers: [CookieService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
