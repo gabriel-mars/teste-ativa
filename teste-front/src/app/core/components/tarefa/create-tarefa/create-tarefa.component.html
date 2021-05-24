@@ -31,21 +31,25 @@
                 </tr>
                 <tr>
                     <td>
-                        <mat-form-field>
-                            <mat-label>Data da tarefa</mat-label>
-                            <input matInput [matDatepicker]="picker" [(ngModel)] = "tarefa.dataHora">
-                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                            <mat-datepicker #picker></mat-datepicker>
+                        <mat-form-field class="form-tarefa">
+                            <mat-label>Data</mat-label>
+                            <input matInput placeholder="00/00/0000 00:00" [(ngModel)] = "tarefa.dataHora" mask="00/00/0000 00:00" name="dataHora" [ngModelOptions]="{standalone: true}" required>
                         </mat-form-field>
                     </td>
                     <td>
-                        <mat-form-field class="form-medico">
-                            <mat-label>Horario</mat-label>
-                            <input matInput placeholder="00:00" [(ngModel)] = "horario" mask="00:00" name="horario" [ngModelOptions]="{standalone: true}" >
+                        <mat-form-field class="form-tarefa">
+                            <mat-label>Duração</mat-label>
+                            <input matInput placeholder="00:00" [(ngModel)] = "tarefa.duracao" mask="00:00" name="duracao" [ngModelOptions]="{standalone: true}" required>
                         </mat-form-field>
                     </td>
                 </tr>
             </table>
+            <mat-form-field>
+                <mat-label>convidados</mat-label>
+                <mat-select multiple [(ngModel)] = "tarefa.convidados" name="clinica" [ngModelOptions]="{standalone: true}">
+                    <mat-option *ngFor="let cv of convidadosList" [value]="cv">{{cv.nome}}</mat-option>
+                </mat-select>
+            </mat-form-field>
         </form>
     </mat-card-content>
     <mat-card-actions>

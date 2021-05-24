@@ -11,6 +11,7 @@ import { Convidado } from './../../../models/convidado.model';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ThemePalette } from '@angular/material/core';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-create-tarefa',
@@ -20,9 +21,7 @@ import { ThemePalette } from '@angular/material/core';
 export class CreateTarefaComponent implements OnInit {
 
   tarefa: Tarefa = {
-    nome: '',
-    dataHora: null,
-    duracao: null
+    nome: ''
   };
 
   convidados = new FormControl();
@@ -35,8 +34,6 @@ export class CreateTarefaComponent implements OnInit {
 
   usuario!: Usuario;
   tarefaForm!: FormGroup;
-
-  horario: string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -72,8 +69,8 @@ export class CreateTarefaComponent implements OnInit {
       return;
     }
 
-    this.tarefa.convidados = this.convidados.value;
     this.tarefa.local = this.local;
+    console.log(this.tarefa);
 
     this.tarefaService.create(this.tarefa, this.usuario.token).subscribe(() => {
       this.toastService.showMessage('Tarefa cadastrada!', true);
