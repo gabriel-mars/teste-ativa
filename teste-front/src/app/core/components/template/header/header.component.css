@@ -1,0 +1,37 @@
+.header {
+    display: flex;
+    align-items: center;
+    padding-left: 15%;
+}
+
+.header span {
+    -ms-flex: 1;  /* IE 10 */  
+    flex: 1;
+}
+
+.header a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333333;
+}
+
+.header .logo {
+    max-height: 32px;
+}
+
+.header .title-group {
+    padding-left: 25px;
+}
+
+.header .title-group i {
+    padding-right: 5px;
+}
+
+.flex-item-1 {
+	flex: 1;
+}
+/* Flex Item */
+.item {
+	text-align: center;
+}
