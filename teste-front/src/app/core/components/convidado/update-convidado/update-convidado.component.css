@@ -1,0 +1,22 @@
+form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+button {
+    margin: 20px 15px 0px 0px;
+}
+  
+.form-convidado {
+    width: 100%;
+}
+
+.btn-update {
+    background-color: #2AB393 !important;
+    color: #fff;
+}
+  
+td {
+    padding-right: 8px;
+}

@@ -1,1 +1,12 @@
-<p>delete-local works!</p>
+<mat-card>
+    <mat-card-title>Remover Local</mat-card-title>
+
+    <form>
+        <mat-form-field>
+            <input matInput placeholder="Nome" [value] = "local?.nome" name="nome" disabled/>
+        </mat-form-field>
+    </form>
+</mat-card>
+
+<button mat-raised-button (click)="deleteLocal()" color="warn">Remover</button>
+<button mat-raised-button (click)="cancel()">Cancelar</button> 

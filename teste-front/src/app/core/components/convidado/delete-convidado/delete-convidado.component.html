@@ -1,1 +1,16 @@
-<p>delete-convidado works!</p>
+<mat-card>
+    <mat-card-title>Remover Convidado</mat-card-title>
+
+    <form>
+        <mat-form-field>
+            <input matInput placeholder="Nome" [value] = "convidado?.nome" name="nome" disabled/>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="E-mail" [value] = "convidado?.email" name="email" disabled/>
+        </mat-form-field>
+    </form>
+</mat-card>
+
+<button mat-raised-button (click)="deleteConvidado()" color="warn">Remover</button>
+<button mat-raised-button (click)="cancel()">Cancelar</button> 

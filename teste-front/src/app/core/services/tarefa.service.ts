@@ -10,7 +10,7 @@ import { Injectable } from '@angular/core';
 })
 export class TarefaService {
 
-  baseUrl = "http://localhost:8080/api-ativa/tarefa";
+  baseUrl = "http://localhost:8080/tarefa";
   params = new HttpParams();
   headers = new HttpHeaders()
     .set("Content-Type", "application/json");

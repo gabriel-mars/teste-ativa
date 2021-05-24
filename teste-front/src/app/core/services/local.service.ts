@@ -10,7 +10,7 @@ import { Injectable } from '@angular/core';
 })
 export class LocalService {
 
-  baseUrl = "http://localhost:8080/api-ativa/local";
+  baseUrl = "http://localhost:8080/local";
   params = new HttpParams();
   headers = new HttpHeaders()
     .set("Content-Type", "application/json");
@@ -19,6 +19,15 @@ export class LocalService {
     private http: HttpClient,
     private toastService: ToastService
   ) { }
+
+  create(local: Local, token: string): Observable<Local> {
+    this.params = new HttpParams();
+    this.params = this.params.set('token', token);
+    return this.http.post<Local>(this.baseUrl, local, {headers: this.headers, params: this.params}).pipe(
+      map((obj) => obj),
+      catchError(e => this.errorHandler(e))
+    );
+  }
 
   read(token: string): Observable<Local[]> {
     this.params = new HttpParams();

@@ -17,7 +17,7 @@ export class LoginService {
 
   userLogged!: Usuario;
 
-  baseUrl = "http://localhost:8080/api-ativa/user";
+  baseUrl = "http://localhost:8080/user";
   headers = new HttpHeaders()
     .set("Content-Type", "application/json");
 

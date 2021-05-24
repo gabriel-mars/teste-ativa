@@ -1,1 +1,42 @@
-<p>update-convidado works!</p>
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Atualização de Convidado</mat-card-title>
+    </mat-card-header>
+    <br />
+    <mat-card-content>
+        <form [formGroup]="convidadoForm">           
+            <table class="form-convidado" cellspacing="0">
+                <tr>
+                    <td>
+                        <mat-form-field class="form-convidado">
+                            <mat-label>Nome</mat-label>
+                            <input matInput placeholder="Nome" [(ngModel)] = "convidado.nome" name="nome" formControlName="nome" required/>
+                            <mat-error *ngIf="f.nome.errors?.required">
+                                Nome é <strong>obrigatório</strong>
+                            </mat-error>
+                            <mat-error *ngIf="f.nome.errors?.minlength">
+                                Nome deve ter pelo menos 3 caracteres.
+                            </mat-error>
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field class="form-convidado">
+                            <mat-label>E-mail</mat-label>
+                            <input matInput placeholder="E-mail" [(ngModel)] = "convidado.email" name="email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': f.email.errors }" required/>
+                            <mat-error *ngIf="f.email.errors?.email">
+                                Digite um e-mail válido
+                            </mat-error>
+                            <mat-error *ngIf="f.email.errors?.required">
+                                Email é <strong>obrigatório</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </td>
+                </tr>
+            </table>           
+        </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button (click)="updateConvidado()" class="btn-update">Atualizar</button>
+        <button mat-raised-button (click)="cancel()">Cancelar</button>
+    </mat-card-actions>
+</mat-card>

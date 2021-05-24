@@ -10,7 +10,7 @@ import { HttpParams, HttpHeaders, HttpClient } from '@angular/common/http';
 })
 export class ConvidadoService {
 
-  baseUrl = "http://localhost:8080/api-ativa/convidado";
+  baseUrl = "http://localhost:8080/convidado";
   params = new HttpParams();
   headers = new HttpHeaders()
     .set("Content-Type", "application/json");
@@ -19,6 +19,15 @@ export class ConvidadoService {
     private http: HttpClient,
     private toastService: ToastService
   ) { }
+
+  create(convidado: Convidado, token: string): Observable<Convidado> {
+    this.params = new HttpParams();
+    this.params = this.params.set('token', token);
+    return this.http.post<Convidado>(this.baseUrl, convidado, {headers: this.headers, params: this.params}).pipe(
+      map((obj) => obj),
+      catchError(e => this.errorHandler(e))
+    );
+  }
 
   read(token: string): Observable<Convidado[]> {
     this.params = new HttpParams();
