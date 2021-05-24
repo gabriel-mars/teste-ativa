@@ -17,7 +17,7 @@ export class LoginService {
 
   userLogged!: Usuario;
 
-  baseUrl = "http://localhost:8080/api-ativa/usuario";
+  baseUrl = "http://localhost:8080/api-ativa/user";
   headers = new HttpHeaders()
     .set("Content-Type", "application/json");
 
@@ -29,7 +29,7 @@ export class LoginService {
   ) { }
 
   readByEmail(usuario: Usuario): Observable<Usuario> {
-    const url = `${this.baseUrl}/bonovida/auth`;
+    const url = `${this.baseUrl}/login`;
     return this.http.post<Usuario>(url, usuario, {headers: this.headers}).pipe(
       map((obj) => obj),
       catchError(e => this.errorHandler(e))

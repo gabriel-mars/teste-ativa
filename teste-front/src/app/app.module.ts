@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './core/components/login/login.component';
@@ -20,6 +21,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatMenuModule } from '@angular/material/menu';
+
 import { ConvidadoComponent } from './core/components/convidado/convidado.component';
 import { CreateConvidadoComponent } from './core/components/convidado/create-convidado/create-convidado.component';
 import { UpdateConvidadoComponent } from './core/components/convidado/update-convidado/update-convidado.component';
@@ -35,6 +40,7 @@ import { CreateTarefaComponent } from './core/components/tarefa/create-tarefa/cr
 import { UpdateTarefaComponent } from './core/components/tarefa/update-tarefa/update-tarefa.component';
 import { ReadTarefaComponent } from './core/components/tarefa/read-tarefa/read-tarefa.component';
 import { DeleteTarefaComponent } from './core/components/tarefa/delete-tarefa/delete-tarefa.component';
+import { HomeComponent } from './core/components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -56,11 +62,13 @@ import { DeleteTarefaComponent } from './core/components/tarefa/delete-tarefa/de
     CreateTarefaComponent,
     UpdateTarefaComponent,
     ReadTarefaComponent,
-    DeleteTarefaComponent
+    DeleteTarefaComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MatSnackBarModule,
     MatToolbarModule,
@@ -72,7 +80,10 @@ import { DeleteTarefaComponent } from './core/components/tarefa/delete-tarefa/de
     ReactiveFormsModule,
     MatIconModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatMenuModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]
