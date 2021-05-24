@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './core/components/login/login.component';
+import { FormsModule } from '@angular/forms';
 
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { SidebarComponent } from './core/components/template/sidebar/sidebar.component';
@@ -25,6 +26,10 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+
+import { NgxMaskModule, IConfig } from 'ngx-mask'
 
 import { ConvidadoComponent } from './core/components/convidado/convidado.component';
 import { CreateConvidadoComponent } from './core/components/convidado/create-convidado/create-convidado.component';
@@ -40,6 +45,7 @@ import { UpdateTarefaComponent } from './core/components/tarefa/update-tarefa/up
 import { DeleteTarefaComponent } from './core/components/tarefa/delete-tarefa/delete-tarefa.component';
 import { HomeComponent } from './core/components/home/home.component';
 
+export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 @NgModule({
   declarations: [
     AppComponent,
@@ -79,9 +85,13 @@ import { HomeComponent } from './core/components/home/home.component';
     MatTableModule,
     MatPaginatorModule,
     MatMenuModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    FormsModule,
+    NgxMaskModule.forRoot(),
   ],
-  providers: [CookieService],
+  providers: [CookieService, MatDatepickerModule],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

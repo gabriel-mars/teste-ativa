@@ -1,1 +1,55 @@
-<p>create-tarefa works!</p>
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Cadastro de Tarefas</mat-card-title>
+    </mat-card-header>
+    <br />
+    <mat-card-content>
+        <form [formGroup]="tarefaForm">
+            <table class="form-tarefa" cellspacing="0">
+                <tr>
+                    <td>
+                        <mat-form-field class="form-tarefa">
+                            <mat-label>Nome</mat-label>
+                            <input matInput placeholder="Nome" [(ngModel)]="tarefa.nome" name="nome"
+                                formControlName="nome" required />
+                            <mat-error *ngIf="f.nome.errors?.required">
+                                Nome é <strong>obrigatório</strong>
+                            </mat-error>
+                            <mat-error *ngIf="f.nome.errors?.minlength">
+                                Nome deve ter pelo menos 3 caracteres.
+                            </mat-error>
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field class="form-tarefa">
+                            <mat-label>Local</mat-label>
+                            <mat-select [(ngModel)]="local" name="local" [ngModelOptions]="{standalone: true}" required>
+                                <mat-option *ngFor="let lc of locaisList" [value]="lc">{{ lc.nome }}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field>
+                            <mat-label>Data da tarefa</mat-label>
+                            <input matInput [matDatepicker]="picker" [(ngModel)] = "tarefa.dataHora">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field class="form-medico">
+                            <mat-label>Horario</mat-label>
+                            <input matInput placeholder="00:00" [(ngModel)] = "horario" mask="00:00" name="horario" [ngModelOptions]="{standalone: true}" >
+                        </mat-form-field>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button (click)="createTarefa()" class="btn-update">Salvar</button>
+        <button mat-raised-button (click)="cancel()">Cancelar</button>
+    </mat-card-actions>
+</mat-card>

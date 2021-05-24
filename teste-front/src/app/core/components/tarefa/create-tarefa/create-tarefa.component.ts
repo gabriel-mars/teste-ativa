@@ -9,7 +9,8 @@ import { ToastService } from './../../../services/toast.service';
 import { Local } from './../../../models/local.model';
 import { Convidado } from './../../../models/convidado.model';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormBuilder, FormGroup } from '@angular/forms';
+import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ThemePalette } from '@angular/material/core';
 
 @Component({
   selector: 'app-create-tarefa',
@@ -25,13 +26,17 @@ export class CreateTarefaComponent implements OnInit {
   };
 
   convidados = new FormControl();
-  local: Local;
+  local: Local = {
+    nome: ''
+  };
 
   convidadosList: Array<Convidado> = [];
   locaisList: Array<Local> = [];
 
   usuario!: Usuario;
   tarefaForm!: FormGroup;
+
+  horario: string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -44,7 +49,10 @@ export class CreateTarefaComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // CRIAR FORM VALIDATION
+    this.tarefaForm = this.formBuilder.group({
+      nome: ['', [Validators.required, Validators.minLength(3)]],
+    });
+
     this.usuario = JSON.parse(this.cookieService.get('usuario'));
     this.convidadoService.read(this.usuario.token).subscribe(convidados => {
       this.convidadosList = convidados;
