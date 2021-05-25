@@ -1,3 +1,7 @@
+import { LocalService } from './../../../services/local.service';
+import { ConvidadoService } from './../../../services/convidado.service';
+import { Convidado } from './../../../models/convidado.model';
+import { Local } from './../../../models/local.model';
 import { Usuario } from './../../../models/usuario.model';
 import { Tarefa } from './../../../models/tarefa.model';
 import { TarefaService } from './../../../services/tarefa.service';
@@ -14,11 +18,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UpdateTarefaComponent implements OnInit {
 
-  tarefa: Tarefa = {
-    nome: '',
-    dataHora: null,
-    duracao: null
+  tarefa: Tarefa;
+
+  local: Local = {
+    nome: ''
   };
+
+  convidadosList: Array<Convidado> = [];
+  locaisList: Array<Local> = [];
 
   usuario!: Usuario;
   tarefaForm!: FormGroup;
@@ -30,6 +37,8 @@ export class UpdateTarefaComponent implements OnInit {
     private router: Router,
     private tarefaService: TarefaService,
     private route: ActivatedRoute,
+    private convidadoService: ConvidadoService,
+    private localService: LocalService
   ) { }
 
   ngOnInit(): void {
@@ -42,6 +51,16 @@ export class UpdateTarefaComponent implements OnInit {
 
     this.tarefaService.readById(id, this.usuario.token).subscribe(tarefa => {
       this.tarefa = tarefa;
+      this.tarefa.dataHoraAux = new Date(this.tarefa.dataHora)
+    });
+
+    this.usuario = JSON.parse(this.cookieService.get('usuario'));
+    this.convidadoService.read(this.usuario.token).subscribe(convidados => {
+      this.convidadosList = convidados;
+    });
+
+    this.localService.read(this.usuario.token).subscribe(locais => {
+      this.locaisList = locais;
     });
   }
 
@@ -53,8 +72,9 @@ export class UpdateTarefaComponent implements OnInit {
     if (this.tarefaForm.invalid) {
       return;
     }
-
-    this.usuario = JSON.parse(this.cookieService.get('usuario'));
+    
+    this.tarefa.local = this.local;
+    this.tarefa.dataHora = this.tarefa.dataHoraAux.toISOString()
 
     this.tarefaService.update(this.tarefa, this.usuario.token).subscribe(() => {
       this.toastService.showMessage('Tarefa atualizada!', true);

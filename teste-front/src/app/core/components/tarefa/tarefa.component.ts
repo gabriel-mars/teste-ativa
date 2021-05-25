@@ -17,7 +17,7 @@ export class TarefaComponent implements OnInit {
 
   usuario!: Usuario;
   tarefas: Array<Tarefa> = [];
-  displayedColumns = ['nome', 'dataHora', 'local', 'action'];
+  displayedColumns = ['nome', 'local', 'action'];
   dataSource!: MatTableDataSource<Tarefa>;
   @ViewChild(MatPaginator, {static: true}) paginator!: MatPaginator;
 

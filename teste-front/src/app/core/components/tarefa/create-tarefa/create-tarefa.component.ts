@@ -21,10 +21,10 @@ import { DatePipe } from '@angular/common';
 export class CreateTarefaComponent implements OnInit {
 
   tarefa: Tarefa = {
-    nome: ''
+    nome: '',
+    dataHoraAux: new Date
   };
 
-  convidados = new FormControl();
   local: Local = {
     nome: ''
   };
@@ -70,7 +70,7 @@ export class CreateTarefaComponent implements OnInit {
     }
 
     this.tarefa.local = this.local;
-    console.log(this.tarefa);
+    this.tarefa.dataHora = this.tarefa.dataHoraAux.toISOString()
 
     this.tarefaService.create(this.tarefa, this.usuario.token).subscribe(() => {
       this.toastService.showMessage('Tarefa cadastrada!', true);

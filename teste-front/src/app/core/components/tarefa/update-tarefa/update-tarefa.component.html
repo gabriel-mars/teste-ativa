@@ -1,1 +1,61 @@
-<p>update-tarefa works!</p>
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Atualizacao de Tarefas</mat-card-title>
+    </mat-card-header>
+    <br />
+    <mat-card-content>
+        <form [formGroup]="tarefaForm">
+            <table class="form-tarefa" cellspacing="0">
+                <tr>
+                    <td>
+                        <mat-form-field class="form-tarefa">
+                            <mat-label>Nome</mat-label>
+                            <input matInput placeholder="Nome" [(ngModel)]="tarefa.nome" name="nome"
+                                formControlName="nome" required />
+                            <mat-error *ngIf="f.nome.errors?.required">
+                                Nome é <strong>obrigatório</strong>
+                            </mat-error>
+                            <mat-error *ngIf="f.nome.errors?.minlength">
+                                Nome deve ter pelo menos 3 caracteres.
+                            </mat-error>
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field class="form-tarefa">
+                            <mat-label>Local</mat-label>
+                            <mat-select [(ngModel)]="tarefa.local" name="local" [ngModelOptions]="{standalone: true}" required>
+                                <mat-option *ngFor="let lc of locaisList" [value]="lc">{{ lc.nome }}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field class="form-tarefa">
+                            <mat-label>Data</mat-label>
+                            <input matInput [matDatepicker]="picker" [(ngModel)] = "tarefa.dataHoraAux" name="dataHoraAux" [ngModelOptions]="{standalone: true}">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker color="primary"></mat-datepicker>
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field class="form-tarefa">
+                            <mat-label>Duração</mat-label>
+                            <input matInput placeholder="00:00" [(ngModel)] = "tarefa.duracao" mask="00:00" name="duracao" [ngModelOptions]="{standalone: true}" required>
+                        </mat-form-field>
+                    </td>
+                </tr>
+            </table>
+            <mat-form-field>
+                <mat-label>convidados</mat-label>
+                <mat-select multiple [(ngModel)] = "tarefa.convidados" name="clinica" [ngModelOptions]="{standalone: true}">
+                    <mat-option *ngFor="let cv of convidadosList" [value]="cv">{{cv.nome}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button (click)="updateTarefa()" class="btn-update">Atualizar</button>
+        <button mat-raised-button (click)="cancel()">Cancelar</button>
+    </mat-card-actions>
+</mat-card>

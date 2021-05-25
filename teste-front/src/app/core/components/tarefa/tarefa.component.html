@@ -10,16 +10,10 @@
             <td mat-cell *matCellDef="let row">{{ row.nome }}</td>
         </ng-container>
 
-        <!-- DataHora Column -->
-        <ng-container matColumnDef="dataHora">
-            <th mat-header-cell *matHeaderCellDef>Data</th>
-            <td mat-cell *matCellDef="let row">{{ row.dataHora }}</td>
-        </ng-container>
-
         <!-- Local Column -->
         <ng-container matColumnDef="local">
             <th mat-header-cell *matHeaderCellDef>Local</th>
-            <td mat-cell *matCellDef="let row">{{ row.local }}</td>
+            <td mat-cell *matCellDef="let row">{{ row.local.nome }}</td>
         </ng-container>
 
         <!-- Acões Column -->

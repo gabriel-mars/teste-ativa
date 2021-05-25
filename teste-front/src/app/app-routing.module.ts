@@ -1,3 +1,4 @@
+import { DeleteTarefaComponent } from './core/components/tarefa/delete-tarefa/delete-tarefa.component';
 import { UpdateTarefaComponent } from './core/components/tarefa/update-tarefa/update-tarefa.component';
 import { DeleteLocalComponent } from './core/components/local/delete-local/delete-local.component';
 import { UpdateLocalComponent } from './core/components/local/update-local/update-local.component';
@@ -69,7 +70,7 @@ const routes: Routes = [
   },
   {
     path: "tarefa/delete/:id",
-    component: DeleteLocalComponent
+    component: DeleteTarefaComponent
   },
 ];
 
