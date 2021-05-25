@@ -37,3 +37,5 @@ CREATE TABLE tarefa_convidado (
 
 ALTER TABLE tarefa_convidado ADD CONSTRAINT fk_tarefa_id FOREIGN KEY (fk_tarefa_id) REFERENCES tarefa(id) ON UPDATE CASCADE ON DELETE NO ACTION;
 ALTER TABLE tarefa_convidado ADD CONSTRAINT fk_convidado_id FOREIGN KEY (fk_convidado_id) REFERENCES convidado(id) ON UPDATE CASCADE ON DELETE NO ACTION;
+
+INSERT INTO usuario (email, token, senha) VALUES ('admin@admin.com', '64e1b8d34f425d19e1ee2ea7236d3028', 'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f');
