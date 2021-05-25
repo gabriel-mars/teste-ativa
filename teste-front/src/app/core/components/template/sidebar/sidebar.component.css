@@ -1,0 +1,25 @@
+.sidenav {
+    background-color: #2F4050;
+    width: 15%;
+}
+
+.sidenav a {
+    color: azure;
+}
+
+.sidenav a:hover {
+    background-color: #283847;
+}
+
+.sidenav i {
+    padding-right: 10px;
+}
+
+.content {
+    padding: 15px;
+    background-color: #FFF;
+}
+
+.mat-form-field + .mat-form-field {
+    margin-left: 8px;
+}

@@ -1,0 +1,36 @@
+<mat-sidenav-container class="container">
+    <mat-sidenav class="sidenav" mode="side" opened 
+        fixedInViewport="true">
+        <mat-nav-list class="nav-list">
+            <a mat-list-item routerLink="/home">
+                <i class="material-icons">
+                    home
+                </i>
+                Home
+            </a>
+        </mat-nav-list>
+        <mat-nav-list class="nav-list" appPermissao>
+            <a mat-list-item routerLink="/tarefa">
+                <i class="material-icons">
+                    add_task
+                </i>
+                Tarefa
+            </a>
+            <a mat-list-item routerLink="/local" appPermissao>
+                <i class="material-icons">
+                    place
+                </i>
+                Local
+            </a>
+            <a mat-list-item routerLink="/convidado" appPermissao>
+                <i class="material-icons">
+                    people
+                </i>
+                Convidado
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content class="content">
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

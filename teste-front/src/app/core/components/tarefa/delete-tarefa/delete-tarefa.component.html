@@ -1,0 +1,16 @@
+<mat-card>
+    <mat-card-title>Remover Tarefa</mat-card-title>
+
+    <form>
+        <mat-form-field>
+            <input matInput placeholder="Nome" [value] = "tarefa?.nome" name="nome" disabled/>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Local" [value] = "tarefa?.local.nome" name="nome" disabled/>
+        </mat-form-field>
+    </form>
+</mat-card>
+
+<button mat-raised-button (click)="deleteTarefa()" color="warn">Remover</button>
+<button mat-raised-button (click)="cancel()">Cancelar</button> 

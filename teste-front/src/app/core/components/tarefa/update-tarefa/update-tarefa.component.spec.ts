@@ -1,0 +1,25 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { UpdateTarefaComponent } from './update-tarefa.component';
+
+describe('UpdateTarefaComponent', () => {
+  let component: UpdateTarefaComponent;
+  let fixture: ComponentFixture<UpdateTarefaComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [ UpdateTarefaComponent ]
+    })
+    .compileComponents();
+  });
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(UpdateTarefaComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
