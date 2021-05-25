@@ -1,0 +1,430 @@
+{
+	"info": {
+		"_postman_id": "b6152726-7b12-4135-9a41-f0891f5afafc",
+		"name": "Teste Ativa",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"admin@admin.com\",\n    \"senha\": \"12345678\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastro Tarefa",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome\": \"Teste\",\n    \"dataHora\": \"2021-05-24T23:55:48.426Z\",\n    \"duracao\": \"0100\",\n    \"local\": {\n        \"id\": 2\n    },\n    \"convidados\": [\n        {\n            \"id\": 3,\n    \"nome\": \"Jéssica\",\n    \"email\": \"jessica@mail.com\"\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/tarefa?token=64e1b8d34f425d19e1ee2ea7236d3028",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tarefa"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "64e1b8d34f425d19e1ee2ea7236d3028"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar Tarefa",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 26,\n    \"nome\": \"Teste\",\n    \"dataHora\": \"2021-05-24T23:55:48.426Z\",\n    \"duracao\": \"0100\",\n    \"local\": {\n        \"id\": 2\n    },\n    \"convidados\": [\n        {\n            \"id\": 3,\n    \"nome\": \"Jéssica\",\n    \"email\": \"jessica@mail.com\"\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/tarefa?token=64e1b8d34f425d19e1ee2ea7236d3028",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tarefa"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "64e1b8d34f425d19e1ee2ea7236d3028"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tarefa By ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/tarefa/35?token=64e1b8d34f425d19e1ee2ea7236d3028",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tarefa",
+						"35"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "64e1b8d34f425d19e1ee2ea7236d3028"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Tarefa",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastro Convidado",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"admin@admin.com\",\n    \"senha\": \"12345678\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar Convidado",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 4,\n    \"nome\": \"Gabriel Teste\",\n    \"email\": \"gabriel@mail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/convidado?token=64e1b8d34f425d19e1ee2ea7236d3028",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"convidado"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "64e1b8d34f425d19e1ee2ea7236d3028"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Convidao By ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"admin@admin.com\",\n    \"senha\": \"12345678\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/convidado/1?token=64e1b8d34f425d19e1ee2ea7236d3028",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"convidado",
+						"1"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "64e1b8d34f425d19e1ee2ea7236d3028"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Convidado",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 4,\n    \"nome\": \"Gabriel Teste\",\n    \"email\": \"gabriel@mail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/convidado/4?token=64e1b8d34f425d19e1ee2ea7236d3028",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"convidado",
+						"4"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "64e1b8d34f425d19e1ee2ea7236d3028"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastro Local",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome\": \"Local 1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/local?token=64e1b8d34f425d19e1ee2ea7236d3028",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"local"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "64e1b8d34f425d19e1ee2ea7236d3028"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar Local",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 35,\n    \"nome\": \"Local 35\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/local?token=64e1b8d34f425d19e1ee2ea7236d3028",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"local"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "64e1b8d34f425d19e1ee2ea7236d3028"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Local By ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"admin@admin.com\",\n    \"senha\": \"12345678\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/convidado/1?token=64e1b8d34f425d19e1ee2ea7236d3028",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"convidado",
+						"1"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "64e1b8d34f425d19e1ee2ea7236d3028"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Local",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 4,\n    \"nome\": \"Gabriel Teste\",\n    \"email\": \"gabriel@mail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/local/35?token=64e1b8d34f425d19e1ee2ea7236d3028",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"local",
+						"35"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "64e1b8d34f425d19e1ee2ea7236d3028"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
